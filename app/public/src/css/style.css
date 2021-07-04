@@ -1,0 +1,264 @@
+#app {
+    max-width: 100%;
+}
+
+canvas {
+    margin-top: 15px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+.section__header {
+    margin: 20px 0;
+}
+
+.section__center {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+
+.section__center .btn {
+    margin-top: 15px;
+}
+
+#chart {
+    -webkit-box-shadow: 4px 4px 11px 4px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 11px 4px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 11px 4px rgba(34, 60, 80, 0.2);
+}
+.containerGroup {
+    display: flex;
+}
+.container__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+#toTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+#number {
+    max-width: 100px
+}
+.table th, .table td, .table th {
+    text-align: center;
+}
+
+.form-check__checkbox {
+    margin-top: 10px;
+}
+.section__container {
+    margin: 0 auto;
+}
+.section__container .d-flex {
+    justify-content: space-evenly;
+}
+
+
+/* Current weather */
+
+/* reset css */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+body,h1,h2,h3,h4,p,ul[class],ol[class],li,figure,figcaption,blockquote,dl,dd {
+  margin: 0;
+}
+
+ul[class],ol[class] {
+  padding: 0;
+}
+
+/* weather card styles */
+
+.weather-states{
+    width: 650px;
+    height: 406px;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10px);
+
+    color: white;
+}
+
+.day{
+    background-image: url("./img/day.jpg");
+}
+
+.night{
+    background-image: url("./img//night.jpg");
+}
+
+/* styles for top part weather card */
+
+.top-weather-states{
+    width: inherit;
+    height: 300px;
+}
+
+.date-weather-states, .temp-weather-states, .adress{
+    position: relative;
+
+    left: 50%;
+    transform: translate(-50%, 10%);
+}
+
+
+.date-weather-states p{
+    text-align: center;
+    font-size: 17px;
+    line-height: 19px;
+    color: #fff;
+    padding-top: 22px;
+    height: 19px;
+}
+
+.temp-weather-states p{
+    text-align: center;
+    font-size: 120px;
+    letter-spacing: -5px;
+}
+
+.adress p{
+    text-align: center;
+    font-size: 25px;
+    line-height: 19px;
+    color: #fff;
+    height: 19px;
+}
+
+/* separator between top and bottom parts weather card */
+
+.separator-weather-states{
+    width: 85%;
+    border: white 1px solid;
+    position: relative;
+
+    left: 50%;
+    transform: translate(-50%, -25px);
+}
+
+/* styles for bottom part weather card */
+
+.bottom-weather-states{
+    display: table;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 115px;
+}
+
+.weather-states-card{
+    text-align: center;
+    height: inherit;
+    display: table-cell;
+}
+
+.weather-states-block{
+    text-align: left;
+    display: inline-block;
+}
+
+.weather-states-card-title{
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.weather-states-card-value{
+    font-size: 38px;
+    line-height: 1;
+    display: inline-block;
+    font-weight: lighter;
+    padding-right: 4px;
+    margin-bottom: 3px;
+}
+
+.weather-states-card-messure{
+    font-size: 18px;
+    line-height: 15px;
+    vertical-align: top;
+    word-break: break-word;
+    max-width: 50px;
+
+    text-align: left;
+    display: inline-block;
+}
+
+/* loader */
+
+.loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: #FFF1F1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #A19882;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+
+.dark-theme {
+    background-color: #212529;
+}
+
+.dark-theme h1 {
+    color: #fff;
+}
+
+.dark-theme canvas {
+    background-color: #343a40;
+}
+
+.dark-theme #weather-date {
+    background-color: #343a40;
+    color: #fff;
+}
