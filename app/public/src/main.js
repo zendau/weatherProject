@@ -1,10 +1,16 @@
+import "core-js/stable"
+import "regenerator-runtime/runtime"
+
 import Weather from "./components/theWeather"
 import Graf from "./components/graf/theGraf"
 import Table from "./components/theTable"
+ 
 
 import "./css/style.css"
 
 import set_color from "./utils/setColor"
+
+import "./utils/proxy.min"
 
 const loader = document.querySelector(".loader")
 
@@ -24,7 +30,8 @@ export const statusClasses = new Proxy({
         if (isAllTrue) {
             weather.render()
             set_color()
-            loader.remove()
+            loader.outerHTML = ""
+
         }
 
         return target[prop]

@@ -9,7 +9,6 @@ const isProd = !isDev
 
 const TerserJSPlugin = require('terser-webpack-plugin')
 
-console.log(isDev)
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -18,7 +17,7 @@ const get_file_name = (env) => isDev ? `bundle.${env}` : `bundle[hash].${env}`
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, './src/main.js')
+      main: path.resolve(__dirname, './src/main.js')
     },
     output: {
         path: path.resolve(__dirname, './src/dist'),
@@ -38,8 +37,8 @@ module.exports = {
             use: {
               loader: "babel-loader",
               options: {
-                presets: ['@babel/preset-env'],
-                plugins: ["@babel/plugin-transform-runtime"]
+                plugins: [
+                  "@babel/plugin-transform-runtime",]
               }
             }
           },
@@ -54,9 +53,10 @@ module.exports = {
             test: /\.jpg$/, 
             loader: "file-loader",
             options: {
-              outputPath: './img/',
-            },
-        }
+              publicPath: "../img",
+              outputPath: 'img',
+            }
+         }
         ]
     },
     plugins: [

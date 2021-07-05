@@ -16,6 +16,8 @@ export default function set_color(){
         navbar.classList.add("bg-light")
         navbar.classList.remove("navbar-dark")
         navbar.classList.remove("bg-dark")
+
+        document.body.classList.remove("dark-theme")
     }
     else{
     
@@ -23,5 +25,8 @@ export default function set_color(){
         navbar.classList.add("bg-dark")
         navbar.classList.remove("navbar-light")
         navbar.classList.remove("bg-light")
+
+        document.body.classList.add("dark-theme")
     }
+
 }

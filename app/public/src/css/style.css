@@ -1,9 +1,26 @@
 #app {
     max-width: 100%;
+    height: 100%;
+}
+
+.flex-column {
+    overflow: auto;
+    position: relative;
+}
+
+.flex-column h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px;
+}
+
+.navbar-collapse .show .flex-column h1 {
+    top: 80px;
 }
 
 canvas {
-    margin-top: 15px;
+    margin-top: 70px;
 }
 
 h1, h2 {
@@ -85,33 +102,30 @@ ul[class],ol[class] {
     width: 650px;
     height: 406px;
 
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 10px);
+    margin: 10px auto;
 
     color: white;
 }
 
 .day{
-    background-image: url("./img/day.jpg");
+    background-image: url("../img/day.jpg");
 }
 
 .night{
-    background-image: url("./img//night.jpg");
+    background-image: url("../img/night.jpg");
 }
 
 /* styles for top part weather card */
 
 .top-weather-states{
-    width: inherit;
     height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .date-weather-states, .temp-weather-states, .adress{
-    position: relative;
 
-    left: 50%;
-    transform: translate(-50%, 10%);
 }
 
 
@@ -152,12 +166,9 @@ ul[class],ol[class] {
 /* styles for bottom part weather card */
 
 .bottom-weather-states{
-    display: table;
+    display: flex;
+    justify-content: space-evenly;
     overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     height: 115px;
 }
@@ -165,7 +176,6 @@ ul[class],ol[class] {
 .weather-states-card{
     text-align: center;
     height: inherit;
-    display: table-cell;
 }
 
 .weather-states-block{
@@ -261,4 +271,68 @@ ul[class],ol[class] {
 .dark-theme #weather-date {
     background-color: #343a40;
     color: #fff;
+}
+
+.dark-theme #weather-date {
+    border: none;
+}
+
+
+#weather-table {
+    overflow: auto;
+    max-height: 68vh;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    
+    .weather-states {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .top-weather-states {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #temp {
+        margin-top: 40px;
+        font-size: 80px;
+        display: block;
+    }
+
+    .adress p {
+        margin-top: 40px;
+        font-size: 20px;
+        line-height: 19px;
+    }
+
+    .bottom-weather-states {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .weather-states-card-title {
+        font-size: 10px;
+    }
+
+    .weather-states-card-value {
+        font-size: 20px;
+    }
+
+    .weather-states-card-messure {
+        font-size: 15px;
+    }
+    
+    .weather-states-block {
+        text-align: center;
+    }
+    
+    .weather-states-card-messure {
+        text-align: center;
+    }
+
 }

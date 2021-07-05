@@ -66,17 +66,25 @@ export default class Weather {
 
     get_date(){
         let date = document.querySelector("#date")
-    
-        let today = new Date()
-        let dd = String(today.getDate()).padStart(2, '0')
-        let mm = String(today.getMonth() + 1).padStart(2, '0')
-    
-        let weekday = new Array("Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб")
-        let month = new Array("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря")
-    
-        today = weekday[today.getDay()] + ", " + dd + " " + month[Number(mm)] + " " + today.getHours() + ":" + today.getMinutes()
-    
-        date.innerHTML = today
+
+        function replase_data() {
+            let today = new Date()
+            let dd = String(today.getDate()).padStart(2, '0')
+            let mm = String(today.getMonth() + 1).padStart(2, '0')
+        
+            let weekday = new Array("Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб")
+            let month = new Array("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря")
+        
+            today = weekday[today.getDay()] + ", " + dd + " " + month[Number(mm)] + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+        
+            date.innerHTML = today
+        }
+
+
+        replase_data()
+        setInterval(replase_data, 1000)
+
+       
     }
     
     get_temp(){
