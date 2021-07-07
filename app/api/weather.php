@@ -1,7 +1,8 @@
 <?php
 
-include "../Server/theWeather.php";
-include "../Server/utils.php";
+include "../theWeather.php";
+include "../utils.php";
+include "../getArchive.php";
 
 error_reporting(0);
 header("Access-Control-Allow-Origin: *");
@@ -31,6 +32,10 @@ if($data) {
         case "graf":
             $graf = $weather->getGrafData();
             return toJson($graf);
+            break;
+
+        case "archive":
+            return getArchiveFiles();
             break;
         
         default:

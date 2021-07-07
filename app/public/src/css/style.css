@@ -124,10 +124,6 @@ ul[class],ol[class] {
     align-items: center;
 }
 
-.date-weather-states, .temp-weather-states, .adress{
-
-}
-
 
 .date-weather-states p{
     text-align: center;
@@ -277,12 +273,25 @@ ul[class],ol[class] {
     border: none;
 }
 
+.dark-theme .archive-date {
+    color: #fff;
+}
 
 #weather-table {
     overflow: auto;
     max-height: 68vh;
     display: block;
 }
+
+ul.archive-list {
+    text-align: center;
+    padding: 20px 0 0;
+}
+
+.archive-date {
+    font-size: 20px;
+}
+
 
 @media (max-width: 768px) {
     
@@ -335,4 +344,10 @@ ul[class],ol[class] {
         text-align: center;
     }
 
+    .navbar-toggler {
+        display: none;
+    }
+
 }
+
+/*  */

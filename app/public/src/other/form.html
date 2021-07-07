@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form action="http://weather/" method="POST">
+        <input type="text" name="login" id="">
+        <input type="text" name="pass">
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', async (event) => {
+
+            event.preventDefault()
+
+            const formData = new FormData(event.target);
+            const formProps = Object.fromEntries(formData);
+
+            const method = event.target.getAttribute('method')
+            const url = event.target.getAttribute('action')
+        
+
+            const data = {}
+
+            if (method === "POST" || method === "post") {
+                data.data = formProps
+            } else if (method === "GET" || method === "get") {
+                data.params = formProps
+            } else {
+                console.error("Uknown method ", method)
+            }
+
+            axios({
+            method,
+            url,
+            ...data
+            }).then((response) => {
+                json = JSON.parse(response)
+				if (json.url) {
+					window.location.href = json.url
+				} else {
+					alert(json.status + ' - ' + json.message)
+				}
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        })
+
+       
+    </script>
+</body>
+</html>

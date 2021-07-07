@@ -204,7 +204,7 @@ export default class Weather {
             <input type="button" name="next_data" id="next-btn" class="btn" value="Следующие записи">
         </div>
         <div class="weather-all-data-date">
-            <h1>Значения за определённый день за прошедший год</h1>
+            <h1>Значения за определённый день за прошедший месяц</h1>
             <div class="section__center">
                 <input type="date" name="weather_date" id="weather-date">
                 <input type="button" name="search_per_date" id="search-date-btn" class="btn btn-primary" value="Найти">

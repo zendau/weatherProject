@@ -1,4 +1,4 @@
 export default {
-    //URL: "http://weather/api/weather.php"
-    URL: "https://orion-practic.herokuapp.com/weather.php"
+    URL: "http://weather/app/api/weather.php"
+    //URL: "https://orion-practic.herokuapp.com/weather.php"
 }

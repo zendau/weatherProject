@@ -4,7 +4,7 @@ import "regenerator-runtime/runtime"
 import Weather from "./components/theWeather"
 import Graf from "./components/graf/theGraf"
 import Table from "./components/theTable"
- 
+import Archive from "./components/theArchive"
 
 import "./css/style.css"
 
@@ -17,11 +17,14 @@ const loader = document.querySelector(".loader")
 export const statusClasses = new Proxy({
     weather: false,
     table: false,
-    graf: false
+    graf: false,
+    archive: false
 }, {
     set(target, prop, receiver) {
 
         target[prop] = receiver
+
+        console.log(prop)
 
         const isAllTrue = Object.keys(target).every((key) => {
             return target[key]===true;
@@ -41,20 +44,13 @@ export const statusClasses = new Proxy({
 
 const $root = document.querySelector("#app")
 
-let weather = null
-let graf = null
-let table = null
+const weather = new Weather($root)
+const graf = new Graf($root)
+const table = new Table($root)
+const archive = new Archive($root)
 
-
-function init() {
-    weather =  new Weather($root)
-    graf =  new Graf($root)
-    table =  new Table($root)
-
-}
 
 const toggle = document.querySelector(".navbar-toggler")
-
 const collapse = document.querySelector(".navbar-collapse")
 
 toggle.addEventListener("click", () => {
@@ -62,40 +58,44 @@ toggle.addEventListener("click", () => {
     const list = collapse.classList
 
     if (list.contains("show")) {
-        collapse.classList.remove("show")
+        list.remove("show")
     } else {
-        collapse.classList.add("show")
+        list.add("show")
     }
 })
 
 const data = document.querySelector("#data")
 const allData = document.querySelector("#allData")
 const chart = document.querySelector("#graf")
+const archiveData = document.querySelector("#archive")
 
-data.addEventListener("click", (e) => {
-    e.preventDefault()
-    weather.render()
-    data.classList.add("active")
-    allData.classList.remove("active")
-    chart.classList.remove("active")
-})
-allData.addEventListener("click", (e) => {
-    e.preventDefault()
-    table.render()
-    allData.classList.add("active")
-    data.classList.remove("active")
-    chart.classList.remove("active")
-})
-chart.addEventListener("click", (e) => {
-    e.preventDefault()
-    graf.render()
-    chart.classList.add("active")
-    allData.classList.remove("active")
-    data.classList.remove("active")
-})
+const elements = [
+    [data, weather], 
+    [allData, table],
+    [chart, graf], 
+    [archiveData, archive]
+]
 
+const activeClass = "active"
 
-document.addEventListener("DOMContentLoaded", () => {
-    init()
+elements.forEach(element => {
+    element[0].addEventListener("click", (e) => {
+
+        e.preventDefault()
+
+        try {
+            console.log(element)
+            element[1].render()
+        } catch (e) {
+            console.error(`Class ${element[1]} not have render method or `, e)
+        }
+
+        elements.forEach(item => {
+            item[0].classList.remove(activeClass)
+        })
+
+        element[0].classList.add(activeClass)
+        
+    })
 })
 

@@ -17,11 +17,12 @@ const get_file_name = (env) => isDev ? `bundle.${env}` : `bundle[hash].${env}`
 
 module.exports = {
     entry: {
-      main: path.resolve(__dirname, './src/main.js')
+      main: path.resolve(__dirname, './src/main.js'),
+      //styles: path.resolve(__dirname, "./src/js/styles.js")
     },
     output: {
         path: path.resolve(__dirname, './src/dist'),
-        filename: get_file_name("js")
+        filename: '[name].js'
     },
     devtool: isDev ? 'source-map' : false,
     devServer: {
